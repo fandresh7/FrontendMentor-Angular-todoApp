@@ -7,8 +7,4 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'todo-app'
-
-  getData() {
-    console.log('here')
-  }
 }
