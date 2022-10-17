@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { TodoComponent } from './todo/todo.component'
-import { ListComponent } from './list/list.component'
-import { CheckTodoComponent } from './check-todo/check-todo.component'
-import { CreateTodoComponent } from './create-todo/create-todo.component'
-import { ActionsComponent } from './actions/actions.component'
+import { TodoComponent } from './components/todo/todo.component'
+import { CheckTodoComponent } from './components/check-todo/check-todo.component'
+import { CreateTodoComponent } from './components/create-todo/create-todo.component'
+import { ActionsComponent } from './components/actions/actions.component'
+import { TodosPageComponent } from './pages/todos-page/todos-page.component'
 
 @NgModule({
   declarations: [
     TodoComponent,
-    ListComponent,
     CheckTodoComponent,
     CreateTodoComponent,
-    ActionsComponent
+    ActionsComponent,
+    TodosPageComponent
   ],
   imports: [CommonModule],
-  exports: [ListComponent]
+  exports: [TodosPageComponent]
 })
 export class TodosModule {}
