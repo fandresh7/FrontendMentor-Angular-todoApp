@@ -1,0 +1,6 @@
+input[type="checkbox"]:checked + span {
+  background: rgb(71,218,255);
+  background-image: url('/assets/icon-check.svg'), linear-gradient(135deg, rgba(71,218,255,1) 0%, rgba(192,88,243,1) 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+}

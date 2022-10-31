@@ -1,8 +1,19 @@
 <article
   class="flex items-center rounded-md bg-white dark:bg-theme-dark-very-dark-desaturated-blue py-3 md:py-4 px-5">
-  <app-check-todo></app-check-todo>
+  <label class="relative flex flex-col items-center">
+    <input
+      type="checkbox"
+      class="absolute -top-96 -left-96"
+      [formControl]="checkInput" />
+
+    <span
+      class="cursor-pointer inline-block w-5 h-5 md:w-6 md:h-6 rounded-full border-[1px] border-solid border-theme-light-very-light-grayish-blue dark:border-theme-dark-very-dark-grayish-blue"></span>
+  </label>
+
   <input
     class="w-full mx-3 outline-none text-theme dark:bg-theme-dark-very-dark-desaturated-blue text-theme-dark-very-dark-grayish-blue dark:text-theme-dark-light-grayish-blue caret-bright-blue"
     type="text"
+    [formControl]="textInput"
+    (keyup.enter)="add()"
     placeholder="Create a new todo..." />
 </article>

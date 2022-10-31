@@ -1,18 +1,36 @@
 <article
   class="group flex items-center bg-white dark:bg-theme-dark-very-dark-desaturated-blue text-theme-light-dark-grayish-blue py-3 md:py-4 px-5">
-  <app-check-todo></app-check-todo>
+  <!-- todo check -->
+  <label class="relative flex flex-col items-center">
+    <input
+      type="checkbox"
+      class="absolute -top-96 -left-96"
+      [formControl]="checkInput" />
+    <span
+      class="cursor-pointer inline-block w-5 h-5 md:w-6 md:h-6 rounded-full border-[1px] border-solid border-theme-light-very-light-grayish-blue dark:border-theme-dark-very-dark-grayish-blue"></span>
+  </label>
+
+  <!-- todo -->
   <div
-    class="cursor-pointer text-left w-full mx-3 outline-none dark:bg-theme-dark-very-dark-desaturated-blue text-theme-dark-very-dark-grayish-blue dark:text-theme-dark-light-grayish-blue">
-    <p>Complete todo App on Frontend Mentor</p>
+    class="cursor-pointer text-left w-full mx-3 outline-none dark:bg-theme-dark-very-dark-desaturated-blue dark:text-theme-dark-light-grayish-blue"
+    [ngClass]="textClasses()"
+    (dblclick)="setIsEditing()">
+    <p *ngIf="!isEditing">{{ todo.text }}</p>
+    <input
+      class="w-full outline-none text-theme dark:bg-theme-dark-very-dark-desaturated-blue text-theme-dark-very-dark-grayish-blue dark:text-theme-dark-light-grayish-blue caret-bright-blue"
+      type="text"
+      [formControl]="textInput"
+      *ngIf="isEditing"
+      #todoText
+      (blur)="edit()" />
   </div>
-  <!-- <div
-    class="cursor-pointer line-through text-left w-full mx-3 outline-none text-theme-light-light-grayish-blue dark:bg-theme-dark-very-dark-desaturated-blue dark:text-theme-dark-dark-grayish-blue">
-    <p>Complete todo App on Frontend Mentor</p>
-  </div> -->
-  <button class="hidden group-hover:block">
+
+  <!-- delete -->
+  <button class="hidden group-hover:block" *ngIf="!isEditing">
     <img
       class="w-3.5 h-3 md:w-4 md:h-4"
       src="/assets/icon-cross.svg"
-      alt="delete" />
+      alt="delete"
+      (click)="remove()" />
   </button>
 </article>
