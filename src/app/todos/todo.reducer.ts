@@ -5,7 +5,8 @@ import {
   update,
   changeStatus,
   remove,
-  clearCompleted
+  clearCompleted,
+  order
 } from './todo.actions'
 
 export const initialState: Todo[] = [
@@ -57,5 +58,14 @@ export const todoReducer = createReducer(
       if (!todo.isComplete) return todo
       return
     })
+  }),
+
+  on(order, (state, { previousIndex, currentIndex }) => {
+    const todo = state.find((_, index) => index === previousIndex)!
+    const todos = state.filter((_, index) => index !== previousIndex)
+
+    todos.splice(currentIndex, 0, todo)
+
+    return todos
   })
 )

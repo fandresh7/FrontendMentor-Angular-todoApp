@@ -18,3 +18,8 @@ export const update = createAction(
 export const remove = createAction('[TODO] Delete', props<{ id: number }>())
 
 export const clearCompleted = createAction('[TODO] Toogle Completed')
+
+export const order = createAction(
+  '[TODO] Order',
+  props<{ previousIndex: number; currentIndex: number }>()
+)
